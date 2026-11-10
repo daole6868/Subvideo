@@ -32,6 +32,10 @@ AUTO_STEPS = [
 ]
 
 
+# Steps whose failure must not stop the automatic run (the result is still usable without them).
+OPTIONAL_AUTO_STEPS = {"qa", "voice_refs", "ocr"}
+
+
 def stage(name: str, label: str):
     def deco(fn: StageFn) -> StageFn:
         STAGES[name] = (label, fn)
@@ -393,7 +397,13 @@ def _auto(project, params, ctx):
         if st == "bible":
             p.setdefault("skip_if_exists", True)
         with ctx.sub(i / len(steps), (i + 1) / len(steps)):
-            msg = run_stage(st, project, p, ctx)
+            try:
+                msg = run_stage(st, project, p, ctx)
+            except Exception as e:
+                if st not in OPTIONAL_AUTO_STEPS:
+                    raise
+                msg = f"bỏ qua do lỗi: {e}"
+                ctx.warn(f"{labels.get(st, st)}: {msg}")
         project.save()
         results.append(f"✔ {labels.get(st, st)}: {msg.splitlines()[0] if msg else ''}")
         ctx.log(results[-1])
