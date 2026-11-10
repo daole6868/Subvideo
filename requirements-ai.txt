@@ -1,0 +1,17 @@
+# SubVideo — các mô hình AI chạy trên máy (cài PyTorch bản CUDA TRƯỚC, xem install_windows.bat)
+# Tách giọng / nhạc nền (UVR: BS-RoFormer, Mel-RoFormer, MDX, Demucs)
+audio-separator[gpu]>=0.40
+# Nghe: FunASR Paraformer-zh + FSMN-VAD + dấu câu + CAM++ (người nói) + SenseVoice (cảm xúc)
+funasr>=1.2
+modelscope
+silero-vad>=5.1
+faster-whisper>=1.1
+# Lồng tiếng
+omnivoice>=0.2
+vieneu>=3.0
+# (tuỳ chọn) phát hiện cắt cảnh bằng PySceneDetect, phân biệt người nói bằng pyannote (cần HF token)
+# scenedetect[opencv]
+# pyannote.audio>=4.0
+#
+# Qwen3-ASR cần transformers 4.57 (xung đột với OmniVoice cần transformers >= 5.3):
+# cài vào môi trường riêng bằng install_qwen_env.bat rồi chọn python.exe của nó trong Cài đặt.

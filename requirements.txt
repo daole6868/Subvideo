@@ -1,0 +1,19 @@
+# SubVideo — thư viện lõi (giao diện, xử lý video/âm thanh, OCR, tải video, dịch API)
+PySide6>=6.7
+numpy>=1.26
+scipy>=1.11
+soundfile>=0.12
+av>=12
+opencv-python>=4.9
+pypinyin>=0.51
+rapidfuzz>=3.0
+opencc>=1.1.9
+yt-dlp>=2025.10.1
+rapidocr>=3.0
+onnxruntime>=1.18
+edge-tts>=7.0
+anthropic
+openai>=1.40
+google-genai>=1.0
+mpv>=1.0
+py7zr>=0.21

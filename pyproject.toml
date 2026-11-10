@@ -1,0 +1,18 @@
+[project]
+name = "subvideo"
+version = "0.1.0"
+description = "Dịch & lồng tiếng video Trung → Việt: tách giọng, nghe, OCR, dịch theo ngữ cảnh, lồng tiếng, căn nhịp, xuất video"
+readme = "README.md"
+requires-python = ">=3.10"
+
+[project.scripts]
+subvideo-cli = "subvideo.cli:main"
+
+[project.gui-scripts]
+subvideo = "subvideo.app:main"
+
+[tool.setuptools.packages.find]
+include = ["subvideo*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

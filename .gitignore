@@ -1,0 +1,19 @@
+__pycache__/
+*.py[cod]
+.venv/
+.venv-*/
+venv/
+bin/
+*.egg-info/
+.pytest_cache/
+build/
+dist/
+.idea/
+.vscode/
+*.log
+# local projects / renders
+projects/
+*.mp4
+*.mkv
+*.wav
+!assets/**
